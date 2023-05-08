@@ -3,5 +3,6 @@ gunicorn
 uvicorn
 opencv-python-headless
 google-cloud-storage
+requests
 Pillow
 numpy

@@ -4,11 +4,12 @@ from google.cloud import storage
 import cv2
 import numpy as np
 import io
+import requests
 
 
 async def predictImage(imageUrl, classifier, imageId):
 
-    imageObj = ProcessImage(imageUrl)
+    imageObj = ProcessImage(requests.get(imageUrl, stream=True).raw)
     carsIdentified = classifier.detectMultiScale(imageObj["closing"], 1.1, 1)
 
     imageObj["totalCounted"] = 0
