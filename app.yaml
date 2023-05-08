@@ -1,0 +1,11 @@
+# Google App Engine config file
+# -----------------------------
+# See https://cloud.google.com/appengine/docs/standard/python3/config/appref
+
+runtime: python311
+
+# Set App Engine instance class (defaults to F1)
+# See https://cloud.google.com/appengine/docs/standard/#instance_classes
+instance_class: F1
+
+entrypoint: gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind :$PORT app.main:app
